@@ -24,18 +24,9 @@ public class Cat implements Participants {
     @Override
     public boolean obstacle(Obstacles obstacle) {
 
-        if (jumpLimit > obstacle.getHeight()) {
+        if (jumpLimit > obstacle.getHeight()||runLimit > obstacle.getLength()) {
             return true;
-        } /*else {
-            //System.out.println(name + " не может пройти дальше");
-            return false;
-        }*/
-        if (runLimit > obstacle.getLength()) {
-            return true;
-        } /*else {
-            //System.out.println(name + " не может пройти дальше");
-            return false;
-        }*/
+        }
         return false;
     }
 

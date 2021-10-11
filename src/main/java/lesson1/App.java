@@ -22,24 +22,17 @@ public class App {
         obst[3] = new Treadmill(15);
         obst[4] = new Wall(20);
 
-
-        /* int i;
-        int j;
-        do {
-            if ()
-            part[i].obstacle(obst[j]);
-        } while (j > obst.length);*/
-
         for (int i = 0; i < part.length; i++) {
             for (int j = 0; j < obst.length; j++) {
-                part[i].obstacle(obst[j]);
-                if (true) {
+                if (part[i].obstacle(obst[j])==true) {
                     System.out.println(part[i].getName() + " прошел дистанцию");
 
                 } else {
                     System.out.println(part[i].getName() + " Не прошел дистанцию");
+                    break;
                 }
             }
+
         }
     }
 }
