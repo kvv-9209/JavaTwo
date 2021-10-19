@@ -1,7 +1,7 @@
 package lesson1.HomeWork1;
 
 public class Treadmill implements Obstacle {
-   private int length;
+    private int length;
 
     public Treadmill(int length) {
         this.length = length;
