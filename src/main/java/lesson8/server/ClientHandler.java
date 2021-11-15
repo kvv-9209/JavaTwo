@@ -26,6 +26,23 @@ public class ClientHandler {
             this.out = new DataOutputStream(socket.getOutputStream());
             new Thread(() -> {
                 try {
+                    /**
+                     * по тайм-ауту (120 сек. ждём после подключения клиента и,
+                     *      * если он не авторизовался за это время, закрываем соединение)
+                     *      так работает, а если делать через метод, то имя пользователя не подхватывает
+                     *      nonAuthClient(name)
+                     */
+                    new Thread(() -> {
+                        try {
+                            Thread.sleep(120_000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        if (name == null) {
+                            System.out.println("Клиент не авторизовался");
+                                closeConnection();
+                        }
+                    }).start();
                     authentification();
                     readMessage();
                 } catch (IOException ex) {
@@ -45,7 +62,7 @@ public class ClientHandler {
     // /auth login pass
 
     private void authentification() throws IOException {
-        nonAuthClient(name);
+
         while (true) {
             String str = in.readUTF();
             if (str.startsWith(Constants.AUTH_COMMAND)) {
@@ -118,20 +135,21 @@ public class ClientHandler {
      * Метод отвечает за отключение неавторизованных пользователей
      * по тайм-ауту (120 сек. ждём после подключения клиента и,
      * если он не авторизовался за это время, закрываем соединение)
+     * Но таким образом это не работает почему-то
+     *
      * @param nickName имя пользователя
      */
-    private void nonAuthClient(String nickName) {
+/*    private void nonAuthClient(String nickName) {
         new Thread(() -> {
             try {
-                Thread.sleep(20000);
+                Thread.sleep(30000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             if (nickName == null) {
+                System.out.println("Клиент не авторизовался");
                 closeConnection();
             }
-            System.out.println("Нет ответа от пользователя");
         }).start();
-
-    }
+    }*/
 }

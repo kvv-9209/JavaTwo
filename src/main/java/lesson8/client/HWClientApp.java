@@ -198,6 +198,7 @@ public class HWClientApp extends JFrame {
                 sendMessage();
             }
         });
+
         buttonActiveUsers.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
