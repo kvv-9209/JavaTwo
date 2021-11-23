@@ -5,7 +5,8 @@ public class Orange extends Fruit{
     private final float WEIGHTORANGE = 1.5f;
 
 
-    public float getWEIGHTORANGE() {
+    @Override
+    public float getWeight() {
         return WEIGHTORANGE;
     }
 }
