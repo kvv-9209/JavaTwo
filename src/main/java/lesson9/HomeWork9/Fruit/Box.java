@@ -3,32 +3,35 @@ package lesson9.HomeWork9.Fruit;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Box<F> {
+public class Box<F extends Fruit> {
 
-    private ArrayList<F> currentBox;
+    private List<F> currentBox;
 
 
-    public Box(ArrayList<F> currentBox) {
-        this.currentBox = currentBox;
+    public Box() {
+        this.currentBox = new ArrayList<>();
     }
 
-    public int getSize() {
-        return currentBox.size();
-    }
-
-    public boolean compare(Box box) {
-        if(){
-            return true;
-        }
-        return false;
+    public boolean compare(Box<? extends Fruit> box) {
+        return Math.abs(this.getWeight() - box.getWeight()) < 0.00001;
     }
 
     public void add(F fruit) {
         currentBox.add(fruit);
     }
 
-    public float getWeight(float weight){
-      return getSize() * weight;
+    public float getWeight() {
+        float weight = 0.0f;
+
+        for (F fruit : currentBox) {
+            weight += fruit.getWeight();
+        }
+        return weight;
+    }
+
+    public void pourFruitFromBoxToBox(Box<F> box) {
+        box.currentBox.addAll(currentBox);
+        currentBox.clear();
     }
 
 }
