@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lesson12.client.Controller">
+   <children>
+      <Button fx:id="buttonReg" layoutX="525.0" layoutY="368.0" mnemonicParsing="false" onAction="#onClickReg" prefHeight="30.0" prefWidth="175.0" text="Зарегистрироваться" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="368.0" />
+      <TextField fx:id="loginReg" layoutX="525.0" layoutY="304.0" prefHeight="30.0" prefWidth="175.0" promptText="Введите новый логин" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="304.0" />
+      <TextField fx:id="passReg" layoutX="525.0" layoutY="336.0" prefHeight="30.0" prefWidth="175.0" promptText="Введите новый пароль" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="336.0" />
+      <Button fx:id="buttonActiveUsers" layoutX="525.0" layoutY="241.0" mnemonicParsing="false" onAction="#onClickActiveUsers" prefHeight="30.0" prefWidth="175.0" text="Активные пользователи" textOverrun="CLIP" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="241.0" />
+      <TextField fx:id="textSend" minHeight="30.0" minWidth="300.0" prefHeight="31.0" prefWidth="525.0" promptText="Введите сообщение..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="175.0" />
+      <Button fx:id="buttonSend" maxWidth="175.0" minHeight="30.0" minWidth="50.0" mnemonicParsing="false" onAction="#onClickSend" prefWidth="175.0" text="Отправить" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="activeUsers" layoutX="584.0" layoutY="36.0" prefHeight="209.0" prefWidth="175.0" promptText="Нажмите кнопку &quot;активные пользователи&quot;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+      <TextArea fx:id="textChat" layoutX="-35.0" layoutY="2.0" prefHeight="600.0" prefWidth="386.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="30.0" />
+      <ImageView fitHeight="67.0" fitWidth="175.0" layoutX="525.0" layoutY="504.55554962158203" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="48.22222900390625" AnchorPane.rightAnchor="0.0">
+         <image>
+            <Image url="@icon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonRename" layoutX="525.0" layoutY="422.0" mnemonicParsing="false" onAction="#onClickRename" prefHeight="30.0" prefWidth="175.0" text="Сменить имя пользователья" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="453.0" />
+      <TextField fx:id="nickRename" layoutX="525.0" layoutY="453.0" prefHeight="30.0" prefWidth="175.0" promptText="Введите имя пользователя" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="422.0" />
+      <TextField fx:id="login" layoutX="118.0" layoutY="104.0" prefHeight="30.0" prefWidth="262.0" promptText="Введите логин" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextField fx:id="pass" layoutX="191.0" layoutY="150.0" prefHeight="30.0" prefWidth="262.0" promptText="Введите пароль" AnchorPane.leftAnchor="262.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="buttonAuth" layoutX="211.0" layoutY="260.0" mnemonicParsing="false" onAction="#onClickAuth" prefHeight="30.0" prefWidth="175.0" text="Авторизоваться" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextField fx:id="nickReg" layoutX="525.0" layoutY="272.0" prefHeight="30.0" prefWidth="175.0" promptText="Введите имя пользователя" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="272.0" />
+   </children>
+</AnchorPane>
