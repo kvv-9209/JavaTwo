@@ -1,11 +1,15 @@
 package lesson14.HomeWork14.server;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BaseAuthService implements AuthService {
 
     private List<Entry> entries;
+    private static final Logger logger = LogManager.getLogger(BaseAuthService.class);
 
     public BaseAuthService() {
         entries = new ArrayList<>();
@@ -17,11 +21,13 @@ public class BaseAuthService implements AuthService {
     @Override
     public void start() {
         System.out.println("Auth service is running");
+        logger.info("Auth service is running");
     }
 
     @Override
     public void stop() {
         System.out.println("Auth service is shutting down");
+        logger.info("Auth service is shutting down");
     }
 
     @Override

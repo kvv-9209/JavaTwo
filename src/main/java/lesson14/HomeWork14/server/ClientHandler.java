@@ -46,6 +46,7 @@ public class ClientHandler {
                                 }
                                 if (name == null) {
                                     System.out.println("Клиент не авторизовался");
+                                    logger.warn("Клиент не авторизовался");
                                     closeConnection();
                                 }
                             }
@@ -110,6 +111,7 @@ public class ClientHandler {
             String messageFromClient = in.readUTF();
             //hint: можем получать команду
             System.out.println("Сообщение от " + name + ": " + messageFromClient);
+            logger.info("Сообщение от " + name + ": " + messageFromClient);
             String[] token = messageFromClient.split("\\s+");
 
             if (messageFromClient.equals(Constants.END_COMMAND)) {

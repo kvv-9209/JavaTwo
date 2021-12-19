@@ -1,11 +1,15 @@
 package lesson14.HomeWork14.server;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 
 public class DBAuthService implements AuthService {
 
     private static Connection connection;
     private static Statement statement;
+    private static final Logger logger = LogManager.getLogger(DBAuthService.class);
 
 
     @Override
@@ -13,6 +17,7 @@ public class DBAuthService implements AuthService {
         connection = DriverManager.getConnection("jdbc:sqlite:authservice.db");
         statement = connection.createStatement();
         System.out.println("Auth service is running");
+        logger.info("Auth service is running");
     }
 
 
@@ -34,6 +39,7 @@ public class DBAuthService implements AuthService {
             ex.printStackTrace();
         }
         System.out.println("Auth service is shutting down");
+        logger.info("Auth service is shutting down");
     }
 
     @Override
