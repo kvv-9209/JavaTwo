@@ -5,7 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<<<<<<< HEAD
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lesson14.HomeWork14.client.Controller">
+=======
 <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lesson12.client.Controller">
+>>>>>>> origin/master
    <children>
       <Button fx:id="buttonReg" layoutX="525.0" layoutY="368.0" mnemonicParsing="false" onAction="#onClickReg" prefHeight="30.0" prefWidth="175.0" text="Зарегистрироваться" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="368.0" />
       <TextField fx:id="loginReg" layoutX="525.0" layoutY="304.0" prefHeight="30.0" prefWidth="175.0" promptText="Введите новый логин" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="304.0" />
