@@ -1,6 +1,8 @@
 package lesson14.HomeWork14.server;
 
 import lesson14.HomeWork14.constants.Constants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -26,6 +28,8 @@ public class MyServer {
      */
     private List<ClientHandler> clients;
 
+    private static final Logger logger = LogManager.getLogger(MyServer.class);
+
 
     public AuthService getAuthService() {
         return authService;
@@ -43,13 +47,16 @@ public class MyServer {
 
             while (true) {
                 System.out.println("Сервер ожидает подключения");
+                logger.info("Сервер ожидает подключения");
                 Socket socket = server.accept();
                 System.out.println("Клиент подключился");
+                logger.info("Клиент подключился");
                 new ClientHandler(this, socket);
             }
 
         } catch (IOException | SQLException ex) {
             System.out.println("Ошибка в работе сервера.");
+            logger.error("Ошибка в работе сервера.");
             ex.printStackTrace();
         } finally {
             if (authService != null) {
@@ -61,10 +68,6 @@ public class MyServer {
     public synchronized void broadcastMessage(String message) {
 
         clients.forEach(client -> client.sendMessage(message));
-
-        /*for (ClientHandler client : clients) {
-            client.sendMessage(message);
-        }*/
     }
 
     public synchronized void sendMessageToClient(ClientHandler from, String nickTo, String msg) {
@@ -80,14 +83,6 @@ public class MyServer {
                     from.sendMessage("клиенту " + nickTo + ": " + msg);
                 }
                 , () -> from.sendMessage("Участника с ником " + nickTo + " нет в чат-комнате"));
-
-/*        for (ClientHandler client : clients) {
-            if (client.getName().equals(nickTo)) {
-                client.sendMessage("от " + from.getName() + ": " + msg);
-                from.sendMessage("клиенту " + nickTo + ": " + msg);
-                return;
-            }
-        }*/
     }
 
     public synchronized void subscribe(ClientHandler client) {
